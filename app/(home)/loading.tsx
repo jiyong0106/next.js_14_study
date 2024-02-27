@@ -4,7 +4,7 @@ import { cutemococo } from '../../public/image'
 const Loading = () => {
   return (
     <div>
-      <img src={cutemococo} alt="로딩중" />
+      <h1>로딩중</h1>
     </div>
   )
 }
