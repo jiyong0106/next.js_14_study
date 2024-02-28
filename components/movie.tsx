@@ -20,7 +20,7 @@ export default function Movie({ poster_path, title, id }: MovieProps) {
   return (
     <div className={styles.movie}>
       <img src={poster_path} alt={title} onClick={handleClick} />
-      <Link href={`/movies/${id}`}>{title}</Link>
+      {/* <Link href={`/movies/${id}`}>{title}</Link> */}
     </div>
   );
 }
