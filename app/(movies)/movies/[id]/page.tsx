@@ -1,12 +1,8 @@
 import React, { Suspense } from "react";
-import MovieVideos from "../../../../components/movie-videos";
-import MovieInfo from "../../../../components/movie-info";
+import MovieVideos from "@/components/module/movie-videos";
+import MovieInfo from "@/components/module/movie-info";
 import { getMovieId } from "../../../../components/api/getMovieData";
-import MovieCredits from "../../../../components/movie-credits";
-
-interface IParams {
-  params: { id: string };
-}
+import { IParams } from "@/types/type";
 
 export const generateMetadata = async ({ params: { id } }: IParams) => {
   const movie = await getMovieId(id);
@@ -56,3 +52,5 @@ export default MovieDetail;
 //그리고 Suspense를 사용해야함 , awiat을 사용하지 않아도 됨 -> Suspense가 대신해줌
 //Suspense는 fallback을 사용해야함, fallback은 로딩중에 보여줄 컴포넌트를 말함
 //suspend는 로딩중에 보여줄 컴포넌트를 말함
+
+//id를 내려줌

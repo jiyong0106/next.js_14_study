@@ -1,14 +1,7 @@
 "use client";
-
-import Link from "next/link";
-import styles from "../styles/movie.module.css";
+import styles from "./movie.module.css";
 import { useRouter } from "next/navigation";
-
-interface MovieProps {
-  poster_path: string;
-  title: string;
-  id: number;
-}
+import { MovieProps } from "@/types/type";
 
 export default function Movie({ poster_path, title, id }: MovieProps) {
   const router = useRouter();
@@ -20,7 +13,6 @@ export default function Movie({ poster_path, title, id }: MovieProps) {
   return (
     <div className={styles.movie}>
       <img src={poster_path} alt={title} onClick={handleClick} />
-      {/* <Link href={`/movies/${id}`}>{title}</Link> */}
     </div>
   );
 }

@@ -2,9 +2,8 @@ import React from "react";
 import { getCredits } from "@/components/api/getMovieData";
 import Image from "next/image";
 import styles from "@/styles/movieCredites.module.css";
-interface IParams {
-  params: { id: string };
-}
+import { IParams } from "@/types/type";
+
 const Credits = async ({ params: { id } }: IParams) => {
   const credits = await getCredits(id);
   const profilesWithPaths = credits.filter(
