@@ -4,6 +4,7 @@ import { usePathname } from "next/navigation";
 import styles from "./navigation.module.css";
 
 const Navigation = () => {
+  const isUserLoggedIn = localStorage.getItem("id");
   const path = usePathname();
   return (
     <>
@@ -24,7 +25,11 @@ const Navigation = () => {
         </ul>
       </nav>
       <div className={styles.secondNav}>
-        <Link href="/login">Login</Link>
+        {isUserLoggedIn ? (
+          <Link href="/logout">Logout</Link>
+          ) : (
+          <Link href="/login">Login</Link>
+        )}
       </div>
     </>
   );

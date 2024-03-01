@@ -1,9 +1,10 @@
-import styles from './input.module.css'
+import styles from "./input.module.css";
+import {inputProps} from "@/types/type";
 
-const InputUi = () => {
+const InputUi = ({ register, id,...rest} : inputProps) => {
   return (
-    <input className={styles.input_style} type="email"/>
-  )
-}
+    <input className={styles.input_style} id={id} {...rest} {...register} />
+  );
+};
 
-export default InputUi
+export default InputUi;
