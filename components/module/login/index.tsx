@@ -24,11 +24,11 @@ const LoginForm = () => {
     }
   };
 
-  useEffect(() => {
-    if(localStorage.getItem('id')){
-      router.push('/')
-    }
-  },[]);
+  // useEffect(() => {
+  //   if(localStorage.getItem('id')){
+  //     router.push('/')
+  //   }
+  // },[]);
 
 
   //data => {email: "이메일", password: "비밀번호"}, 객체로 받아온다.
