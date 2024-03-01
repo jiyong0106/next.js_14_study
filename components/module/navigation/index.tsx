@@ -10,6 +10,10 @@ const Navigation = () => {
       <nav className={styles.nav}>
         <ul>
           <li>
+            <Link href="/">Home</Link>
+            {path === "/" ? "🔴" : ""}
+          </li>
+          <li>
             <Link href="/new">Movie</Link>
             {path === "/new" ? "🔴" : ""}
           </li>
