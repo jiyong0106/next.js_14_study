@@ -21,5 +21,5 @@ export interface inputProps extends HTMLAttributes<HTMLInputElement> {
 export interface useFormProps {
   email: string;
   password: string;
-  passwordconfirm?: string;
+  passwordConfirm?: string;
 } 

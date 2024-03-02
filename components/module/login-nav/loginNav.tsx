@@ -18,7 +18,7 @@ const LoginNav = () => {
 
   const handleLogout = () => {
     localStorage.removeItem("id");
-    router.push("/login");
+    router.push("/signin");
   };
 
   useEffect(() => {
@@ -42,7 +42,7 @@ const LoginNav = () => {
           {isClick && <SmallDown onClick={handleLogout} />}
         </div>
       ) : (
-        <Link href="/login">Login</Link>
+        <Link href="/signin">Login</Link>
       )}
     </div>
   );
