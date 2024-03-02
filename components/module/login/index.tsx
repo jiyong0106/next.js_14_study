@@ -7,6 +7,7 @@ import { email_reg } from "@/components/util/validation";
 import { useFormProps } from "@/types/type";
 import useUserLogin from "@/components/api/useSignIn";
 import SnsLogin from "@/components/module/sns-login/snsLogin";
+import Link from "next/link";
 
 const LoginForm = () => {
   const {
@@ -52,10 +53,13 @@ const LoginForm = () => {
             </small>
           </div>
           <div className={styles.button_wrapper}>
-            <ButtonUi >Login</ButtonUi>
+            <ButtonUi>Login</ButtonUi>
           </div>
         </form>
-        <SnsLogin/>
+        <SnsLogin />
+        <Link href="/signup">
+          <span className={styles.signup_text}>회원 가입하기</span>
+        </Link>
       </div>
     </div>
   );

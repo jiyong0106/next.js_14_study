@@ -1,6 +1,7 @@
 .container{
+  margin-bottom: 20px;
   display: flex;
-  gap: 30px;
+  gap: 20px;
 }
 
 .container li{
@@ -23,10 +24,6 @@
 
 .kakao_container{
   background-color: var(--Yellow50, #fee500);
-}
-
-.naver_container{
-  background-color: white;
 }
 
 .facebook_container{

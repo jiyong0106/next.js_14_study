@@ -12,20 +12,20 @@ import {
 const SnsLogin = () => {
   return (
     <ul className={styles.container}>
-      <li className={styles.apple_container}>
-        <Image src={apple_svg} alt="apple_svg" width={25} height={25} />
+      <li className={styles.google_container}>
+        <Image src={google_png} alt="google_png" width={25} height={25} />
       </li>
       <li className={styles.kakao_container}>
         <Image src={kakao_svg} alt="kakao_svg" width={25} height={25} />
       </li>
-      <li className={styles.google_container}>
-        <Image src={google_png} alt="google_png" width={25} height={25} />
-      </li>
       <li className={styles.naver_container}>
-        <Image src={naver_png} alt="naver_png" width={25} height={25} />
+        <Image src={naver_png} alt="naver_png" width={40} height={40} />
       </li>
       <li className={styles.facebook_container}>
         <Image src={facebook_svg} alt="facebook_svg" width={25} height={25} />
+      </li>
+      <li className={styles.apple_container}>
+        <Image src={apple_svg} alt="apple_svg" width={25} height={25} />
       </li>
     </ul>
   );

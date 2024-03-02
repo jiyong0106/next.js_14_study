@@ -1,7 +1,6 @@
 .container {
   display: flex;
   flex-direction: column;
-  gap: 20px;
   justify-content: center;
   align-items: center;
   height: 100vh;
@@ -16,14 +15,15 @@
   align-items: center;
   background-color: #2d2d2d;
   border-radius: 30px;
+  padding-top: 0px;
 }
 
 .form_container {
   width: 400px;
-  height: 300px;
   display: flex;
   flex-direction: column;
-  gap: 50px;
+  gap: 30px;
+  padding-top: 20px;
 }
 
 .error_text {
@@ -35,4 +35,8 @@
   color: rgb(224, 56, 56, 0.8);
   font-size: 12px;
   margin-top: 5px;
+}
+
+.signup_text{
+  font-size: 15px;
 }
