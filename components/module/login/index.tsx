@@ -3,7 +3,7 @@ import InputUi from "@/components/atomic/input/index";
 import ButtonUi from "@/components/atomic/button/index";
 import styles from "./login.module.css";
 import { useForm } from "react-hook-form";
-import { email_reg, password_reg } from "@/components/util/validation";
+import { email_reg } from "@/components/util/validation";
 import { useFormProps } from "@/types/type";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
