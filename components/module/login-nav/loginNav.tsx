@@ -8,9 +8,10 @@ import Image from "next/image";
 import SmallDown from "@/components/atomic/smallDown";
 
 const LoginNav = () => {
-  const isUserLoggedIn = localStorage.getItem("id");
   const router = useRouter();
   const [isClick, setIsClick] = useState(false);
+
+  const isUserLoggedIn = typeof window !== 'undefined' && localStorage.getItem("id");
 
   const handleClick = () => {
     setIsClick(!isClick);
