@@ -2,7 +2,7 @@
 import Link from "next/link";
 import styles from "./loginNav.module.css";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useState,useEffect, use } from "react";
 import { smallDown_svg } from "@/public/image/index";
 import Image from "next/image";
 import SmallDown from "@/components/atomic/smallDown";
@@ -10,8 +10,8 @@ import SmallDown from "@/components/atomic/smallDown";
 const LoginNav = () => {
   const router = useRouter();
   const [isClick, setIsClick] = useState(false);
+  const [isUserLoggedIn, setIsUserLoggedIn] = useState(null);
 
-  const isUserLoggedIn = typeof window !== 'undefined' && localStorage.getItem("id");
 
   const handleClick = () => {
     setIsClick(!isClick);
@@ -21,6 +21,11 @@ const LoginNav = () => {
     localStorage.removeItem("id");
     router.push("/login");
   };
+
+  useEffect(() => {
+      const useId = localStorage.getItem("id");
+      setIsUserLoggedIn(useId);
+  },[])
 
   return (
     <div className={styles.secondNav}>
@@ -35,7 +40,7 @@ const LoginNav = () => {
             className={styles.smallDown_svg}
             onClick={handleClick}
           />
-          {isClick && <SmallDown onclick={handleLogout} />}
+          {isClick && <SmallDown onClick={handleLogout} />}
         </div>
       ) : (
         <Link href="/login">Login</Link>

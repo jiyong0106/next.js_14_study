@@ -6,7 +6,6 @@ import { useForm } from "react-hook-form";
 import { email_reg } from "@/components/util/validation";
 import { useFormProps } from "@/types/type";
 import { useRouter } from "next/navigation";
-import { useEffect } from "react";
 
 const LoginForm = () => {
   const {
@@ -23,13 +22,6 @@ const LoginForm = () => {
       router.push("/");
     }
   };
-
-  // useEffect(() => {
-  //   if(localStorage.getItem('id')){
-  //     router.push('/')
-  //   }
-  // },[]);
-
 
   //data => {email: "이메일", password: "비밀번호"}, 객체로 받아온다.
   //-> data.email, data.password로 받아온다.
