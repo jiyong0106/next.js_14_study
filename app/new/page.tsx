@@ -1,6 +1,7 @@
 import { getMovie } from "../../components/api/getMovieData";
 import Movie from "@/components/module/movie-main";
 import styles from "../../styles/home.module.css";
+import Navigation from "@/components/module/navigation";
 
 export const metadata = {
   title: "NewMovie",
@@ -13,6 +14,7 @@ export default async function NewPage() {
 
   return (
     <div className={styles.container}>
+      <Navigation />
       {movies.map((movie) => (
         <Movie
           key={movie.id}

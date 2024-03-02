@@ -3,6 +3,7 @@ import MovieVideos from "@/components/module/movie-videos";
 import MovieInfo from "@/components/module/movie-info";
 import { getMovieId } from "../../../../components/api/getMovieData";
 import { IParams } from "@/types/type";
+import Navigation from "@/components/module/navigation";
 
 export const generateMetadata = async ({ params: { id } }: IParams) => {
   const movie = await getMovieId(id);
@@ -14,6 +15,7 @@ export const generateMetadata = async ({ params: { id } }: IParams) => {
 const MovieDetail = async ({ params: { id } }: IParams) => {
   return (
     <>
+      <Navigation />
       <Suspense fallback={<h1>Loading Movie Info</h1>}>
         <MovieInfo id={id} />
       </Suspense>

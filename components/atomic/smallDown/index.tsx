@@ -1,5 +1,3 @@
-"use client";
-import { useRouter } from "next/navigation";
 import styles from "./smallDown.module.css";
 
 const SmallDown = ({onClick}) => {

@@ -5,33 +5,25 @@ import styles from "./login.module.css";
 import { useForm } from "react-hook-form";
 import { email_reg } from "@/components/util/validation";
 import { useFormProps } from "@/types/type";
-import { useRouter } from "next/navigation";
+
+import useUserLogin from "@/components/api/useSignIn";
 
 const LoginForm = () => {
   const {
     register,
     handleSubmit,
-    watch,
+    setError,
     formState: { errors },
   } = useForm<useFormProps>({ mode: "onBlur" });
-  const router = useRouter();
 
-  const onSubmit = (data: any) => {
-    if (data.email === "jimovie@jiflex.com" && data.password === "1234") {
-      localStorage.setItem('id',data.email)
-      router.push("/");
-    }
-  };
-
-  //data => {email: "이메일", password: "비밀번호"}, 객체로 받아온다.
-  //-> data.email, data.password로 받아온다.
+  const getUserLogin = useUserLogin(setError);
 
   return (
     <div className={styles.container}>
       <div className={styles.login_container}>
         <form
           className={styles.form_container}
-          onSubmit={handleSubmit(onSubmit)}
+          onSubmit={handleSubmit(getUserLogin)}
         >
           <div className={styles.input_wrapper}>
             <InputUi
@@ -76,5 +68,5 @@ export default LoginForm;
 //get 방식으로 보내는 것이 아닌 post 방식으로 보내야 한다.=> post는 body에 담아서 보내는 것이다.
 //->body에 담으면 노출되지 않는다.
 
-//서버 만들어서 회원가입 하면 정보가 서버에 저장되고, 
+//서버 만들어서 회원가입 하면 정보가 서버에 저장되고,
 //로그인 시에는 서버에 저장된 정보와 비교해서 로그인을 할 수 있도록 한다.

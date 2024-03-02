@@ -15,7 +15,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="ko">
       <body>
-        <Navigation />
+        {/* <Navigation /> */}
         {children}
       </body>
     </html>
