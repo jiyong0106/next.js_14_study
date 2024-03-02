@@ -5,8 +5,8 @@ import styles from "./login.module.css";
 import { useForm } from "react-hook-form";
 import { email_reg } from "@/components/util/validation";
 import { useFormProps } from "@/types/type";
-
 import useUserLogin from "@/components/api/useSignIn";
+import SnsLogin from "@/components/module/sns-login/snsLogin";
 
 const LoginForm = () => {
   const {
@@ -52,10 +52,10 @@ const LoginForm = () => {
             </small>
           </div>
           <div className={styles.button_wrapper}>
-            <ButtonUi />
+            <ButtonUi >Login</ButtonUi>
           </div>
         </form>
-        여기에 sns로그인
+        <SnsLogin/>
       </div>
     </div>
   );

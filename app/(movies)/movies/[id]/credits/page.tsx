@@ -3,6 +3,7 @@ import { getCredits } from "@/components/api/getMovieData";
 import Image from "next/image";
 import styles from "@/styles/movieCredites.module.css";
 import { IParams } from "@/types/type";
+import Navigation from "@/components/module/navigation/index";
 
 const Credits = async ({ params: { id } }: IParams) => {
   const credits = await getCredits(id);
@@ -11,6 +12,7 @@ const Credits = async ({ params: { id } }: IParams) => {
   );
   return (
     <div className={styles.container}>
+      <Navigation />
       {profilesWithPaths?.map((credit) => (
         <div key={credit.id} className={styles.creditsWrapper}>
           <Image
