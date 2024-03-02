@@ -9,7 +9,7 @@ const useUserLogin = (setError) => {
       const res = await axios.post("http://localhost:3000/api/profile", data);
       const result = await res.data;
 
-      const userId = result.find((user) => user.email === data.email);
+      c;
 
       if (userId) {
         const userName = userId.name;

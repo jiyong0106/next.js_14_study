@@ -3,10 +3,11 @@ import InputUi from "@/components/atomic/input/index";
 import ButtonUi from "@/components/atomic/button/index";
 import styles from "./signup.module.css";
 import { useForm } from "react-hook-form";
-import { email_reg } from "@/components/util/validation";
+import { email_reg, password_reg } from "@/components/util/validation";
 import { useFormProps } from "@/types/type";
 import SnsLogin from "@/components/module/sns-login/snsLogin";
 import Link from "next/link";
+import useEmailDuplicate from "@/components/api/useEmailDuplicate";
 
 const SignUpForm = () => {
   const {
@@ -17,7 +18,11 @@ const SignUpForm = () => {
     formState: { errors },
   } = useForm<useFormProps>({ mode: "onBlur" });
 
-  const onSubmit = (data: any) => {
+  const isEmailDuplicate = useEmailDuplicate(setError);
+
+  // const getUserSignUp = useUserSignUp(setError);
+
+  const onSubmit = (data) => {
     console.log(data);
   };
 
@@ -39,6 +44,7 @@ const SignUpForm = () => {
                   value: email_reg,
                   message: "이메일 형식이 아닙니다.",
                 },
+                onBlur: (e) => isEmailDuplicate(e.target.value),
               })}
             />
             <InputUi
@@ -47,6 +53,11 @@ const SignUpForm = () => {
               type="password"
               register={register("password", {
                 required: "비밀번호를 입력해주세요",
+                pattern: {
+                  value: password_reg,
+                  message:
+                    "비밀번호는 8자 이상, 영문, 숫자, 특수문자를 포함해야합니다.",
+                },
               })}
             />
             <InputUi
@@ -62,9 +73,11 @@ const SignUpForm = () => {
               })}
             />
             <small className={styles.error_text}>
-              {errors.email&&<p>{errors.email.message}</p>}
-              {errors.password&&<p>{errors.password.message}</p>}
-              {errors.passwordConfirm&&<p>{errors.passwordConfirm?.message}</p>}
+              {errors.email && <p>{errors.email.message}</p>}
+              {errors.password && <p>{errors.password.message}</p>}
+              {errors.passwordConfirm && (
+                <p>{errors.passwordConfirm?.message}</p>
+              )}
             </small>
           </div>
           <div className={styles.button_wrapper}>
