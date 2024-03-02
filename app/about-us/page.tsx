@@ -1,5 +1,4 @@
 import React from "react";
-import Navigation from "../../components/movie/navigation/navigation";
 
 const page = () => {
   return (
