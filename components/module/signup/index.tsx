@@ -8,6 +8,7 @@ import { useFormProps } from "@/types/type";
 import SnsLogin from "@/components/module/sns-login/snsLogin";
 import Link from "next/link";
 import useEmailDuplicate from "@/components/api/useEmailDuplicate";
+import useSignUp from "@/components/api/useSignUp";
 
 const SignUpForm = () => {
   const {
@@ -20,18 +21,18 @@ const SignUpForm = () => {
 
   const isEmailDuplicate = useEmailDuplicate(setError);
 
-  // const getUserSignUp = useUserSignUp(setError);
+  const getUserSignUp = useSignUp();
 
-  const onSubmit = (data) => {
-    console.log(data);
-  };
+  // const onSubmit = (data) => {
+  //   console.log(data);
+  // };
 
   return (
     <div className={styles.container}>
       <div className={styles.login_container}>
         <form
           className={styles.form_container}
-          onSubmit={handleSubmit(onSubmit)}
+          onSubmit={handleSubmit(getUserSignUp)}
         >
           <div className={styles.input_wrapper}>
             <InputUi
@@ -51,6 +52,7 @@ const SignUpForm = () => {
               id="password"
               placeholder="password"
               type="password"
+              autoComplete="off"
               register={register("password", {
                 required: "비밀번호를 입력해주세요",
                 pattern: {
@@ -64,6 +66,7 @@ const SignUpForm = () => {
               id="passwordConfirm"
               placeholder="password Confirm"
               type="password"
+              autoComplete="off"
               register={register("passwordConfirm", {
                 required: "비밀번호를 입력해주세요",
                 validate: (value) =>
@@ -72,12 +75,22 @@ const SignUpForm = () => {
                     : "비밀번호가 일치하지 않습니다.",
               })}
             />
+            <InputUi
+              id="userName"
+              placeholder="userName"
+              type="text"
+              autoComplete="off"
+              register={register("userName", {
+                required: "이름을 입력해주세요"
+              })}
+            />
             <small className={styles.error_text}>
               {errors.email && <p>{errors.email.message}</p>}
               {errors.password && <p>{errors.password.message}</p>}
               {errors.passwordConfirm && (
                 <p>{errors.passwordConfirm?.message}</p>
               )}
+              {errors.userName && <p>{errors.userName.message}</p>}
             </small>
           </div>
           <div className={styles.button_wrapper}>

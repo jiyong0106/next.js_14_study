@@ -16,10 +16,13 @@ export interface inputProps extends HTMLAttributes<HTMLInputElement> {
   placeholder : string;
   type : string;
   register : UseFormRegisterReturn
+  autoComplete?: string;
 }
 
 export interface useFormProps {
   email: string;
   password: string;
   passwordConfirm?: string;
+  userName?: string;
+
 } 
