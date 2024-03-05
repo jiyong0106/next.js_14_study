@@ -5,7 +5,7 @@ const useSignUp = () => {
   const router = useRouter();
   const getUserSignUp = async (data) => {
     try {
-      const res = await axios.post("http://localhost:3000/api/profile", {
+      const res = await axios.post("/profile", {
         
         email: data.email,
         name: data.name,
@@ -20,3 +20,5 @@ const useSignUp = () => {
 };
 
 export default useSignUp;
+
+//"http://localhost:3000/api/profile"

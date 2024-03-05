@@ -6,7 +6,7 @@ const useUserLogin = (setError) => {
 
   const getUserLogin = async (data) => {
     try {
-      const res = await axios.post("http://localhost:3000/api/profile", data);
+      const res = await axios.post("/profile", data);
       console.log(data);
       const result = await res.data;
 
@@ -37,3 +37,4 @@ const useUserLogin = (setError) => {
 export default useUserLogin;
 
 //data 는 인풋에 입력되는 data
+//http://localhost:3000/api/profile
