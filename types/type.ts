@@ -12,10 +12,10 @@ export interface MovieProps {
 }
 
 export interface inputProps extends HTMLAttributes<HTMLInputElement> {
-  id : string;
-  placeholder : string;
-  type : string;
-  register : UseFormRegisterReturn
+  id: string;
+  placeholder: string;
+  type: string;
+  register: UseFormRegisterReturn;
   autoComplete?: string;
 }
 
@@ -24,10 +24,9 @@ export interface useFormProps {
   password: string;
   passwordConfirm?: string;
   userName?: string;
-
-} 
+}
 
 export interface IForm {
   children: React.ReactNode;
-  onClick?: (data: any) => void;
+  onClick?: () => void;
 }
