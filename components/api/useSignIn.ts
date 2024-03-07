@@ -1,5 +1,4 @@
 import { useRouter } from "next/navigation";
-import axios from "axios";
 import { db } from "./firebase";
 import { getDocs, collection } from "firebase/firestore";
 
@@ -44,11 +43,14 @@ export default useUserLogin;
 // setDoc과 addDoc으로 추가해 줄 수 있다. 두 함수의 차이점은, setDoc의 경우 ID를 직접 지정할 수 있으나, 
 //addDoc은 아이디가 자동으로 생성 된다는 것
 
-//getDocs는 데이터베이스의 컬렉션을 가져오는 것이다.
+//getDocs는 컬렉션에서 모든 문서를 불러온다.
+// getDoc메서드는 단일 문서 데이터만 불러온다.
 
 //데이터 실시간으로 가져오기 : onSnapshot
 // getDoc과 마찬가지로 Firestore에 저장된 document를 가져오는데 사용되는 메서드이다. 단, 차이점이 존재하는데
 // Firestore에 저장된 document나 collection의 변경 사항을 실시간으로 감지하고 처리하는데 사용되는 메서드이다.
+
+// 컬렉션(collection)과 문서(doc) 
 
 
 // const getCollection = async () => {
