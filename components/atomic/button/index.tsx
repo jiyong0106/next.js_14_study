@@ -1,5 +1,6 @@
 import styles from './button.module.css'
-const ButtonUi = ({children,onClick}) => {
+import {IForm} from '@/types/type'
+const ButtonUi = ({children,onClick} :IForm) => {
   return (
     <button className={styles.button_Styles} onClick={onClick}>{children}</button>
   )

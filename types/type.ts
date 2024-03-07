@@ -26,3 +26,8 @@ export interface useFormProps {
   userName?: string;
 
 } 
+
+export interface IForm {
+  children: React.ReactNode;
+  onClick?: (data: any) => void;
+}
