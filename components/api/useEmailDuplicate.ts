@@ -1,10 +1,12 @@
 import axios from "@/components/api/axios";
+import { db } from "./firebase";
+import { getDocs, collection } from "firebase/firestore";
 
 const useEmailDuplicate = (setError) => {
   const isEmailDuplicate = async (email) => {
-    try {
-      const res = await axios.post("http://localhost:3000/api/profile", {email});
-      const result = res.data;
+    try { 
+      const res = await getDocs(collection(db, "profile"));
+      const result = res.docs.map((doc) => doc.data());
 
       const isDuplicateEmail = result.find((user) => user.email === email);
 
@@ -22,3 +24,5 @@ const useEmailDuplicate = (setError) => {
 };
 
 export default useEmailDuplicate;
+
+// const result = res.docs.map((doc) => doc.data());
