@@ -3,7 +3,7 @@ import axios from "@/components/api/axios";
 const useEmailDuplicate = (setError) => {
   const isEmailDuplicate = async (email) => {
     try {
-      const res = await axios.post("/profile", {email});
+      const res = await axios.post("http://localhost:3000/api/profile", {email});
       const result = res.data;
 
       const isDuplicateEmail = result.find((user) => user.email === email);
