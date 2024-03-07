@@ -38,3 +38,5 @@ export default useSignUp;
 
 // const res = await setDoc(doc(db,"profile","userInfo"), {
 // userInfo인 문서에 데이터를 추가한다.
+//profile은 컬렉션 이름이다.
+//userInfo는 문서 이름이다.
